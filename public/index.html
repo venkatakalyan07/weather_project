@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#102a56">
+  <title>Weather App</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <main class="app">
+    <header class="page-header">
+      <p class="eyebrow">YOUR LOCAL FORECAST</p>
+      <h1>Weather App</h1>
+      <p class="subtitle">Check current weather in your city</p>
+    </header>
+
+    <form class="search-panel" id="weather-form">
+      <label for="city-input">City name</label>
+      <div class="search-controls">
+        <input
+          id="city-input"
+          name="city"
+          type="text"
+          placeholder="For example, Hyderabad"
+          autocomplete="address-level2"
+          aria-describedby="search-hint"
+          aria-required="true"
+        >
+        <button id="search-button" type="submit">Search Weather</button>
+      </div>
+      <p class="search-hint" id="search-hint">Enter one city to see its current conditions.</p>
+    </form>
+
+    <p class="loading-message" id="loading-message" role="status" aria-live="polite" hidden>
+      <span class="loading-spinner" aria-hidden="true"></span>
+      Finding your forecast…
+    </p>
+    <p class="error-message" id="error-message" role="alert" hidden></p>
+
+    <section class="weather-card" id="weather-results" aria-labelledby="weather-city" hidden>
+      <div class="weather-summary">
+        <div>
+          <p class="eyebrow">CURRENT WEATHER</p>
+          <h2 id="weather-city"></h2>
+          <p class="country" id="weather-country"></p>
+        </div>
+        <span class="weather-icon" id="weather-icon" aria-hidden="true">☀️</span>
+      </div>
+
+      <div class="temperature-block">
+        <p class="temperature"><span id="temperature"></span><span class="temperature-unit">°C</span></p>
+        <p class="condition" id="weather-condition"></p>
+      </div>
+
+      <dl class="weather-details">
+        <div class="detail">
+          <dt>Feels like</dt>
+          <dd><span id="feels-like"></span>°C</dd>
+        </div>
+        <div class="detail">
+          <dt>Humidity</dt>
+          <dd><span id="humidity"></span>%</dd>
+        </div>
+        <div class="detail">
+          <dt>Wind speed</dt>
+          <dd><span id="wind-speed"></span> km/h</dd>
+        </div>
+      </dl>
+      <p class="data-credit">Weather data by Open-Meteo</p>
+    </section>
+  </main>
+</body>
+</html>
